@@ -437,7 +437,7 @@
   </notepads>
   <order>
     <hop>
-      <from>Classic Models customers</from>
+      <from>Classic customers</from>
       <to>Concat Address</to>
       <enabled>Y</enabled>
     </hop>
@@ -448,12 +448,12 @@
     </hop>
     <hop>
       <from>Concat contactName</from>
-      <to>Add constants classic</to>
+      <to>Add const classic</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add constants classic</from>
-      <to>Classic select values</to>
+      <from>Add const classic</from>
+      <to>Classic select</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -467,28 +467,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Northwind</from>
-      <to>Sort rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 2</from>
-      <to>Sorted Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Classic select values</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Sort rows</from>
       <to>Sorted Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sorted Merge</from>
-      <to>Group by</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -576,6 +556,36 @@
       <to>Order D Writer</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Sorted Merge</from>
+      <to>Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>ph &#x23; del non-numeric</from>
+      <to>Sort rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Northwind</from>
+      <to>ph &#x23; del non-numeric</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Sorted Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Classic select</from>
+      <to>ph &#x23; del non-numeric1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>ph &#x23; del non-numeric1</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Add constants 2</name>
@@ -641,7 +651,7 @@
     </step>
 
   <step>
-    <name>Add constants classic</name>
+    <name>Add const classic</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
@@ -704,7 +714,7 @@
     </step>
 
   <step>
-    <name>Classic Models customers</name>
+    <name>Classic customers</name>
     <type>AccessInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -743,7 +753,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -756,7 +766,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -795,7 +805,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -808,7 +818,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -821,7 +831,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -834,7 +844,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -847,7 +857,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -860,7 +870,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -873,7 +883,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -886,7 +896,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -899,7 +909,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
     </fields>
@@ -927,7 +937,7 @@
     </step>
 
   <step>
-    <name>Classic select values</name>
+    <name>Classic select</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -963,7 +973,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
+      <xloc>528</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -980,7 +990,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <separator>, </separator>
+    <separator> </separator>
     <enclosure/>
     <enclosure_forced>N</enclosure_forced>
     <enclosure_fix_disabled>N</enclosure_fix_disabled>
@@ -988,7 +998,7 @@
     <footer>N</footer>
     <format>DOS</format>
     <compression>None</compression>
-    <encoding/>
+    <encoding>UTF-8</encoding>
     <endedLine/>
     <fileNameInField>N</fileNameInField>
     <fileNameField/>
@@ -1050,7 +1060,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>176</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1137,7 +1147,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
+      <xloc>304</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1416,8 +1426,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
-      <yloc>32</yloc>
+      <xloc>720</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1458,7 +1468,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>544</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1489,7 +1499,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
+      <xloc>720</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1607,7 +1617,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
+      <xloc>880</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2448,7 +2458,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>912</xloc>
+      <xloc>976</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2948,6 +2958,82 @@
     <GUI>
       <xloc>592</xloc>
       <yloc>784</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>ph &#x23; del non-numeric</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>Phone</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5b;&#x5e;0-9&#x5d;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>432</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>ph &#x23; del non-numeric1</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>Phone</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5b;&#x5e;0-9&#x5d;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

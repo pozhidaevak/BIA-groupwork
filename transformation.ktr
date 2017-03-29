@@ -467,11 +467,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows</from>
-      <to>Sorted Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Classic products</from>
       <to>Append streams</to>
       <enabled>Y</enabled>
@@ -497,11 +492,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Group by ph &#x23;</from>
-      <to>Customers Writer</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>I&#x2f;O sleep</from>
       <to>Products Writer</to>
       <enabled>Y</enabled>
@@ -517,18 +507,13 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Append streams 2</from>
-      <to>I&#x2f;O sleep 2</to>
+      <from>Northwind order D</from>
+      <to>Add &#x27;N&#x27; Prefix 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>I&#x2f;O sleep 2</from>
       <to>Orders Writer</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Northwind order D</from>
-      <to>Add &#x27;N&#x27; Prefix 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -557,38 +542,183 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ph &#x23; del non-numeric</from>
-      <to>Sort rows 2</to>
+      <from>Add contact ID</from>
+      <to>Contact</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Northwind</from>
-      <to>ph &#x23; del non-numeric</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 2</from>
-      <to>Sorted Merge</to>
+      <to>Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Classic select</from>
-      <to>ph &#x23; del non-numeric1</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>ph &#x23; del non-numeric1</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sorted Merge</from>
-      <to>Replace in string</to>
+      <to>Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Replace in string</from>
-      <to>Group by ph &#x23;</to>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>String operations</from>
+      <to>Replace in string 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace in string 2</from>
+      <to>Sort rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add company ID</from>
+      <to>Company</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge</from>
+      <to>Filter dumb</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter dumb</from>
+      <to>Replace in string</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Contact</from>
+      <to>Contact&#x2b; Contact&#x26;Company</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Contact&#x2b; Contact&#x26;Company</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Contact&#x2b; Contact&#x26;Company</from>
+      <to>Select values 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 3</from>
+      <to>String operations</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Group by</from>
+      <to>Add contact ID</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Group by 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Group by 2</from>
+      <to>Add company ID</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Company</from>
+      <to>Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join</from>
+      <to>Contact_Company</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append streams 2</from>
+      <to>Sort rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3</from>
+      <to>Merge Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Company</from>
+      <to>Sort rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Merge Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4 2</from>
+      <to>Merge Join 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Company</from>
+      <to>Sort rows 4 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3</from>
+      <to>Merge Join 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join 2</from>
+      <to>Sorted Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join 2 2</from>
+      <to>Sorted Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sorted Merge</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>I&#x2f;O sleep 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Contact</from>
+      <to>Contacts Writer</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Contact_Company</from>
+      <to>I&#x2f;0 sleep 5</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>I&#x2f;0 sleep 5</from>
+      <to>Contacts_Companies Writer </to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>I&#x2f;0 sleep 5 2</from>
+      <to>Companies writer</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Company</from>
+      <to>I&#x2f;0 sleep 5 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -801,7 +931,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>480</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -833,7 +963,7 @@
       </field>
       <field>
         <name>SalesRepEmployeeNumber</name>
-        <type>Number</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1127,7 +1257,7 @@
       <field>
         <name>salesRepEmployeeNumber</name>
         <attribut>salesRepEmployeeNumber</attribut>
-        <type>Number</type>
+        <type>String</type>
         <format/>
         <length>-1</length>
         <precision>-1</precision>
@@ -1534,7 +1664,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>528</xloc>
+      <xloc>560</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1708,14 +1838,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
+      <xloc>336</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>Customers Writer</name>
+    <name>Contacts Writer</name>
     <type>TypeExitExcelWriterStep</type>
     <description/>
     <distribute>Y</distribute>
@@ -1747,7 +1877,7 @@
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
-      <sheetname>Customers</sheetname>
+      <sheetname>Contacts</sheetname>
       <autosizecolums>N</autosizecolums>
       <stream_data>N</stream_data>
       <protect_sheet>N</protect_sheet>
@@ -1774,132 +1904,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>976</xloc>
-      <yloc>160</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Group by ph &#x23;</name>
-    <type>GroupBy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-      <all_rows>N</all_rows>
-      <ignore_aggregate>N</ignore_aggregate>
-      <field_ignore/>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>grp</prefix>
-      <add_linenr>N</add_linenr>
-      <linenr_fieldname/>
-      <give_back_row>N</give_back_row>
-      <group>
-        <field>
-          <name>Phone</name>
-        </field>
-      </group>
-      <fields>
-        <field>
-          <aggregate>CustomerID</aggregate>
-          <subject>CustomerID</subject>
-          <type>FIRST</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>CustomerIDNW</aggregate>
-          <subject>CustomerIDNW</subject>
-          <type>FIRST</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>CompanyName</aggregate>
-          <subject>CompanyName</subject>
-          <type>FIRST</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>ContactName</aggregate>
-          <subject>ContactName</subject>
-          <type>FIRST</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>ContactTitle</aggregate>
-          <subject>ContactTitle</subject>
-          <type>FIRST</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>Address</aggregate>
-          <subject>Address</subject>
-          <type>FIRST</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>City</aggregate>
-          <subject>City</subject>
-          <type>FIRST</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>Region</aggregate>
-          <subject>Region</subject>
-          <type>FIRST</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>PostalCode</aggregate>
-          <subject>PostalCode</subject>
-          <type>FIRST</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>Country</aggregate>
-          <subject>Country</subject>
-          <type>FIRST</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>Fax</aggregate>
-          <subject>Fax</subject>
-          <type>FIRST</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>CreditLimit</aggregate>
-          <subject>CreditLimit</subject>
-          <type>FIRST</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>SalesRepEmployeeNumber</aggregate>
-          <subject>SalesRepEmployeeNumber</subject>
-          <type>FIRST</type>
-          <valuefield/>
-        </field>
-        <field>
-          <aggregate>Count</aggregate>
-          <subject>Phone</subject>
-          <type>COUNT_ALL</type>
-          <valuefield/>
-        </field>
-      </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>880</xloc>
-      <yloc>160</yloc>
+      <xloc>1104</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1917,7 +1923,7 @@
     </partitioning>
     <steps>
       <step>
-        <name>Customers Writer</name>
+        <name>Companies writer</name>
         <CopyNr>0</CopyNr>
         </step>
       </steps>
@@ -1960,7 +1966,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
+      <xloc>864</xloc>
       <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2717,66 +2723,6 @@
       <hidden>N</hidden>
     </template>
     <fields>
-      <field>
-        <name>OrderID</name>
-        <type>String</type>
-        <format/>
-        <title>OrderID</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>CustomerID</name>
-        <type>String</type>
-        <format/>
-        <title>CustomerID</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>NewOrderDate</name>
-        <type>Date</type>
-        <format>m&#x2f;d&#x2f;yy</format>
-        <title>NewOrderDate</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>NewRequiredDate</name>
-        <type>Date</type>
-        <format>m&#x2f;d&#x2f;yy</format>
-        <title>NewRequiredDate</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>NewShippedDate</name>
-        <type>Date</type>
-        <format>m&#x2f;d&#x2f;yy</format>
-        <title>NewShippedDate</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
     </fields>
     <cluster_schema/>
     <remotesteps>
@@ -2786,7 +2732,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>562</xloc>
+      <xloc>1040</xloc>
       <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2862,7 +2808,7 @@
     <name>Replace in string</name>
     <type>ReplaceString</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -2914,47 +2860,49 @@
         <whole_word>no</whole_word>
         <case_sensitive>no</case_sensitive>
       </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>816</xloc>
-      <yloc>160</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
       <field>
-        <name>Phone</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
+        <in_stream_name>Address</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x28;&#x5e;&#x5c;s&#x7c;&#x5c;s&#x24;&#x29;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>ContactName</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x28;&#x5e;&#x5c;s&#x7c;&#x5c;s&#x24;&#x29;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>Phone</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5b;&#x5e;0-9&#x5d;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>CompanyName</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x28;&#x5e;&#x5c;s&#x7c;&#x5c;s&#x24;&#x29;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
       </field>
     </fields>
     <cluster_schema/>
@@ -2966,55 +2914,13 @@
     </remotesteps>
     <GUI>
       <xloc>720</xloc>
-      <yloc>64</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Sort rows 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>Phone</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>544</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>Sorted Merge</name>
+    <name>Merge</name>
     <type>SortedMerge</type>
     <description/>
     <distribute>N</distribute>
@@ -3025,9 +2931,630 @@
       <schema_name/>
     </partitioning>
     <fields>
+      </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Unique rows</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <count_rows>Y</count_rows>
+      <count_field>ContactCount</count_field>
+      <reject_duplicate_row>N</reject_duplicate_row>
+      <error_description/>
+    <fields>      <field>        <name>ContactName</name>
+        <case_insensitive>Y</case_insensitive>
+        </field>      <field>        <name>PostalCode</name>
+        <case_insensitive>Y</case_insensitive>
+        </field>      </fields>    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Add contact ID</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <valuename>ContactID</valuename>
+      <use_database>N</use_database>
+      <connection/>
+      <schema/>
+      <seqname>SEQ_</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>976</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Contact</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>      <field>        <name>ContactID</name>
+        <rename/>
+      </field>      <field>        <name>ContactName</name>
+        <rename/>
+      </field>      <field>        <name>Address</name>
+        <rename/>
+      </field>      <field>        <name>PostalCode</name>
+        <rename/>
+      </field>      <field>        <name>City</name>
+        <rename/>
+      </field>      <field>        <name>Country</name>
+        <rename/>
+      </field>      <field>        <name>Region</name>
+        <rename/>
+      </field>      <field>        <name>Phone</name>
+        <rename/>
+      </field>      <field>        <name>CustomerID</name>
+        <rename/>
+      </field>      <field>        <name>CustomerIDNW</name>
+        <rename/>
+      </field>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>CustomerID</name>
+        <rename>isCM</rename>
+        <type>Boolean</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>CustomerIDNW</name>
+        <rename>isNW</rename>
+        <type>Boolean</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1008</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
       <field>
-        <name>Phone</name>
+        <name>ContactName</name>
         <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>PostalCode</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Replace in string 2</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>CompanyNameUgly</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x28;&#x5b;&#x5e;a-z&#x5d;&#x7c;co&#x7c;inc&#x7c;ltd&#x29;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>String operations</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>CompanyName</in_stream_name>
+        <out_stream_name>CompanyNameUgly</out_stream_name>
+        <trim_type>both</trim_type>
+        <lower_upper>lower</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Add company ID</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <valuename>CompanyID</valuename>
+      <use_database>N</use_database>
+      <connection/>
+      <schema/>
+      <seqname>SEQ_</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1200</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>CompanyNameUgly</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1008</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Company</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>      <field>        <name>CompanyID</name>
+        <rename/>
+      </field>      <field>        <name>CompanyName</name>
+        <rename/>
+      </field>      <field>        <name>CompanyNameUgly</name>
+        <rename/>
+      </field>      <field>        <name>isCM</name>
+        <rename/>
+      </field>      <field>        <name>isNW</name>
+        <rename/>
+      </field>      <field>        <name>CustomerIDCM</name>
+        <rename/>
+      </field>      <field>        <name>CustomerIDNW</name>
+        <rename/>
+      </field>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>isCM</name>
+        <rename>isCM</rename>
+        <type>Boolean</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>isNW</name>
+        <rename>isNW</rename>
+        <type>Boolean</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Filter dumb</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+<send_true_to/>
+<send_false_to/>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>Address</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>OR</operator>
+   <leftvalue>Phone</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  </conditions>
+ </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Contact&#x2b; Contact&#x26;Company</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>Sort rows</step1>
+<step2>Contact</step2>
+    <keys_1>
+      <key>ContactName</key>
+      <key>PostalCode</key>
+    </keys_1>
+    <keys_2>
+      <key>ContactName</key>
+      <key>PostalCode</key>
+    </keys_2>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Select values 3</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>      <field>        <name>CustomerID</name>
+        <rename>CustomerIDCM</rename>
+      </field>      <field>        <name>CompanyName</name>
+        <rename/>
+      </field>      <field>        <name>CreditLimit</name>
+        <rename/>
+      </field>      <field>        <name>SalesRepEmployeeNumber</name>
+        <rename/>
+      </field>      <field>        <name>CustomerIDNW</name>
+        <rename/>
+      </field>      <field>        <name>ContactID</name>
+        <rename/>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>912</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Group by</name>
+    <type>GroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <all_rows>N</all_rows>
+      <ignore_aggregate>N</ignore_aggregate>
+      <field_ignore/>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>grp</prefix>
+      <add_linenr>N</add_linenr>
+      <linenr_fieldname/>
+      <give_back_row>N</give_back_row>
+      <group>
+        <field>
+          <name>ContactName</name>
+        </field>
+        <field>
+          <name>PostalCode</name>
+        </field>
+      </group>
+      <fields>
+        <field>
+          <aggregate>CustomerID</aggregate>
+          <subject>CustomerID</subject>
+          <type>COUNT_ALL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>Address</aggregate>
+          <subject>Address</subject>
+          <type>FIRST</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>City</aggregate>
+          <subject>City</subject>
+          <type>FIRST</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>Region</aggregate>
+          <subject>Region</subject>
+          <type>FIRST</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>Country</aggregate>
+          <subject>Country</subject>
+          <type>FIRST</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>Phone</aggregate>
+          <subject>Phone</subject>
+          <type>FIRST</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>CustomerIDNW</aggregate>
+          <subject>CustomerIDNW</subject>
+          <type>COUNT_ALL</type>
+          <valuefield/>
         </field>
       </fields>
     <cluster_schema/>
@@ -3038,15 +3565,15 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
-      <yloc>160</yloc>
+      <xloc>896</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>ph &#x23; del non-numeric</name>
-    <type>ReplaceString</type>
+    <name>Group by 2</name>
+    <type>GroupBy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -3055,17 +3582,201 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+      <all_rows>N</all_rows>
+      <ignore_aggregate>N</ignore_aggregate>
+      <field_ignore/>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>grp</prefix>
+      <add_linenr>N</add_linenr>
+      <linenr_fieldname/>
+      <give_back_row>N</give_back_row>
+      <group>
+        <field>
+          <name>CompanyNameUgly</name>
+        </field>
+      </group>
+      <fields>
+        <field>
+          <aggregate>isNW</aggregate>
+          <subject>CustomerIDNW</subject>
+          <type>COUNT_ALL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>isCM</aggregate>
+          <subject>CustomerIDCM</subject>
+          <type>COUNT_ALL</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>CompanyName</aggregate>
+          <subject>CompanyName</subject>
+          <type>FIRST</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>CreditLimit</aggregate>
+          <subject>CreditLimit</subject>
+          <type>FIRST</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>SalesRepEmployeeNumber</aggregate>
+          <subject>SalesRepEmployeeNumber</subject>
+          <type>FIRST</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>CustomerIDCM</aggregate>
+          <subject>CustomerIDCM</subject>
+          <type>FIRST</type>
+          <valuefield/>
+        </field>
+        <field>
+          <aggregate>CustomerIDNW</aggregate>
+          <subject>CustomerIDNW</subject>
+          <type>FIRST</type>
+          <valuefield/>
+        </field>
+      </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1104</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Merge Join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>Sort rows 2</step1>
+<step2>Company</step2>
+    <keys_1>
+      <key>CompanyNameUgly</key>
+    </keys_1>
+    <keys_2>
+      <key>CompanyNameUgly</key>
+    </keys_2>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Contact_Company</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>      <field>        <name>ContactID</name>
+        <rename/>
+      </field>      <field>        <name>CompanyID</name>
+        <rename/>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Merge Join 2</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+<join_type>INNER</join_type>
+<step1>Sort rows 3</step1>
+<step2>Sort rows 4</step2>
+    <keys_1>
+      <key>CustomerID</key>
+    </keys_1>
+    <keys_2>
+      <key>CustomerIDNW</key>
+    </keys_2>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>528</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows 3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <in_stream_name>Phone</in_stream_name>
-        <out_stream_name/>
-        <use_regex>yes</use_regex>
-        <replace_string>&#x5b;&#x5e;0-9&#x5d;</replace_string>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
+        <name>CustomerID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
       </field>
     </fields>
     <cluster_schema/>
@@ -3076,15 +3787,15 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
-      <yloc>160</yloc>
+      <xloc>416</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>ph &#x23; del non-numeric1</name>
-    <type>ReplaceString</type>
+    <name>Sort rows 4</name>
+    <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -3093,17 +3804,21 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <in_stream_name>Phone</in_stream_name>
-        <out_stream_name/>
-        <use_regex>yes</use_regex>
-        <replace_string>&#x5b;&#x5e;0-9&#x5d;</replace_string>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
+        <name>CustomerIDNW</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
       </field>
     </fields>
     <cluster_schema/>
@@ -3114,8 +3829,365 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>32</yloc>
+      <xloc>768</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Merge Join 2 2</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+<join_type>INNER</join_type>
+<step1>Sort rows 3</step1>
+<step2>Sort rows 4 2</step2>
+    <keys_1>
+      <key>CustomerID</key>
+    </keys_1>
+    <keys_2>
+      <key>CustomerIDCM</key>
+    </keys_2>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows 4 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>CustomerIDCM</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1008</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Sorted Merge</name>
+    <type>SortedMerge</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>      <field>        <name>OrderID</name>
+        <rename/>
+      </field>      <field>        <name>CompanyID</name>
+        <rename/>
+      </field>      <field>        <name>NewOrderDate</name>
+        <rename/>
+      </field>      <field>        <name>NewRequiredDate</name>
+        <rename/>
+      </field>      <field>        <name>NewShippedDate</name>
+        <rename/>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>I&#x2f;0 sleep 5</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Contacts Writer</name>
+        <CopyNr>0</CopyNr>
+        </step>
+      </steps>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1264</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Contacts_Companies Writer </name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
+    <appendLines>N</appendLines>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>&#x24;&#x7b;outxls&#x7d;</name>
+      <extention>xlsx</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Contacts_Companies</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>reuse</if_file_exists>
+      <if_sheet_exists>new</if_sheet_exists>
+      </file>
+    <template>
+      <enabled>N</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>template.xls</filename>
+      <sheetname/>
+      <hidden>N</hidden>
+    </template>
+    <fields>
+      <field>
+        <name>ContactID</name>
+        <type>Integer</type>
+        <format/>
+        <title>ContactID</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CompanyID</name>
+        <type>Integer</type>
+        <format/>
+        <title>CompanyID</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1392</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>I&#x2f;0 sleep 5 2</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Contacts_Companies Writer </name>
+        <CopyNr>0</CopyNr>
+        </step>
+      </steps>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1440</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Companies writer</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
+    <appendLines>N</appendLines>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>&#x24;&#x7b;outxls&#x7d;</name>
+      <extention>xlsx</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Company</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>reuse</if_file_exists>
+      <if_sheet_exists>new</if_sheet_exists>
+      </file>
+    <template>
+      <enabled>N</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>template.xls</filename>
+      <sheetname/>
+      <hidden>N</hidden>
+    </template>
+    <fields>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1568</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

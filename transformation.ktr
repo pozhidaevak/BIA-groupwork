@@ -547,18 +547,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Replace in string</from>
-      <to>Sort rows</to>
+      <from>Trim &#x2b; del non-numbers in ph&#x23; &#x2b; del extended lating chars</from>
+      <to>Sort by Contact</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>String operations</from>
-      <to>Replace in string 2</to>
+      <from>Unify company name 0</from>
+      <to>Unify company name</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Replace in string 2</from>
-      <to>Sort rows 2</to>
+      <from>Unify company name</from>
+      <to>Sort by CompanyName</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -568,46 +568,46 @@
     </hop>
     <hop>
       <from>Merge</from>
-      <to>Filter dumb</to>
+      <to>Filter without phone and address</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter dumb</from>
-      <to>Replace in string</to>
+      <from>Filter without phone and address</from>
+      <to>Trim &#x2b; del non-numbers in ph&#x23; &#x2b; del extended lating chars</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Contact</from>
-      <to>Contact&#x2b; Contact&#x26;Company</to>
+      <to>Join Contact&#x2b; Contact&#x26;Company</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows</from>
-      <to>Contact&#x2b; Contact&#x26;Company</to>
+      <from>Sort by Contact</from>
+      <to>Join Contact&#x2b; Contact&#x26;Company</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Contact&#x2b; Contact&#x26;Company</from>
+      <from>Join Contact&#x2b; Contact&#x26;Company</from>
       <to>Select values 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Select values 3</from>
-      <to>String operations</to>
+      <to>Unify company name 0</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows</from>
-      <to>Group by</to>
+      <from>Sort by Contact</from>
+      <to>Group by Contact</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Group by</from>
+      <from>Group by Contact</from>
       <to>Add contact ID</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 2</from>
+      <from>Sort by CompanyName</from>
       <to>Group by 2</to>
       <enabled>Y</enabled>
     </hop>
@@ -617,38 +617,38 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 2</from>
-      <to>Merge Join</to>
+      <from>Sort by CompanyName</from>
+      <to>Join Company &#x26; Contact_Company</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Company</from>
-      <to>Merge Join</to>
+      <to>Join Company &#x26; Contact_Company</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge Join</from>
+      <from>Join Company &#x26; Contact_Company</from>
       <to>Contact_Company</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Company</from>
-      <to>Sort rows 4</to>
+      <to>Sort by CustomerIDNW</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 4</from>
+      <from>Sort by CustomerIDNW</from>
       <to>Add unified ID</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 4 2</from>
+      <from>Sort by CustomerIDCM</from>
       <to>Add unified ID 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Company</from>
-      <to>Sort rows 4 2</to>
+      <to>Sort by CustomerIDCM</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -2105,7 +2105,7 @@
     </step>
 
   <step>
-    <name>Contact&#x2b; Contact&#x26;Company</name>
+    <name>Join Contact&#x2b; Contact&#x26;Company</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>Y</distribute>
@@ -2116,7 +2116,7 @@
       <schema_name/>
     </partitioning>
 <join_type>LEFT OUTER</join_type>
-<step1>Sort rows</step1>
+<step1>Sort by Contact</step1>
 <step2>Contact</step2>
     <keys_1>
       <key>ContactName</key>
@@ -2325,7 +2325,7 @@
     </step>
 
   <step>
-    <name>Filter dumb</name>
+    <name>Filter without phone and address</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -2372,7 +2372,7 @@
     </step>
 
   <step>
-    <name>Group by</name>
+    <name>Group by Contact</name>
     <type>GroupBy</type>
     <description/>
     <distribute>Y</distribute>
@@ -2721,7 +2721,7 @@
     </step>
 
   <step>
-    <name>Merge Join</name>
+    <name>Join Company &#x26; Contact_Company</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>Y</distribute>
@@ -2732,7 +2732,7 @@
       <schema_name/>
     </partitioning>
 <join_type>LEFT OUTER</join_type>
-<step1>Sort rows 2</step1>
+<step1>Sort by CompanyName</step1>
 <step2>Company</step2>
     <keys_1>
       <key>CompanyNameUgly</key>
@@ -2767,7 +2767,7 @@
     </partitioning>
 <join_type>INNER</join_type>
 <step1>Sort by CustomerID</step1>
-<step2>Sort rows 4</step2>
+<step2>Sort by CustomerIDNW</step2>
     <keys_1>
       <key>CustomerID</key>
     </keys_1>
@@ -2801,7 +2801,7 @@
     </partitioning>
 <join_type>INNER</join_type>
 <step1>Sort by CustomerID 2</step1>
-<step2>Sort rows 4 2</step2>
+<step2>Sort by CustomerIDCM</step2>
     <keys_1>
       <key>CustomerID</key>
     </keys_1>
@@ -3684,9 +3684,9 @@
     </step>
 
   <step>
-    <name>Replace in string</name>
+    <name>Trim &#x2b; del non-numbers in ph&#x23; &#x2b; del extended lating chars</name>
     <type>ReplaceString</type>
-    <description/>
+    <description>Trim &#x2b; remove extended latin &#x2b; remove non-numerical values from phone</description>
     <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
@@ -3799,7 +3799,7 @@
     </step>
 
   <step>
-    <name>Replace in string 2</name>
+    <name>Unify company name</name>
     <type>ReplaceString</type>
     <description/>
     <distribute>Y</distribute>
@@ -3901,7 +3901,7 @@
     </step>
 
   <step>
-    <name>Sort rows</name>
+    <name>Sort by Contact</name>
     <type>SortRows</type>
     <description/>
     <distribute>N</distribute>
@@ -3951,7 +3951,7 @@
     </step>
 
   <step>
-    <name>Sort rows 2</name>
+    <name>Sort by CompanyName</name>
     <type>SortRows</type>
     <description/>
     <distribute>N</distribute>
@@ -3993,7 +3993,7 @@
     </step>
 
   <step>
-    <name>Sort rows 4</name>
+    <name>Sort by CustomerIDNW</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -4035,7 +4035,7 @@
     </step>
 
   <step>
-    <name>Sort rows 4 2</name>
+    <name>Sort by CustomerIDCM</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -4077,7 +4077,7 @@
     </step>
 
   <step>
-    <name>String operations</name>
+    <name>Unify company name 0</name>
     <type>StringOperations</type>
     <description/>
     <distribute>Y</distribute>

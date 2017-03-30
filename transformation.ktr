@@ -497,16 +497,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add &#x27;C&#x27; Prefix</from>
-      <to>Append streams 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add &#x27;N&#x27; Prefix</from>
-      <to>Append streams 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Northwind order D</from>
       <to>Add &#x27;N&#x27; Prefix 2</to>
       <enabled>Y</enabled>
@@ -642,16 +632,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Append streams 2</from>
-      <to>Sort rows 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 3</from>
-      <to>Merge Join 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Company</from>
       <to>Sort rows 4</to>
       <enabled>Y</enabled>
@@ -669,26 +649,6 @@
     <hop>
       <from>Company</from>
       <to>Sort rows 4 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 3</from>
-      <to>Merge Join 2 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge Join 2</from>
-      <to>Sorted Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge Join 2 2</from>
-      <to>Sorted Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sorted Merge</from>
-      <to>Select values 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -719,6 +679,41 @@
     <hop>
       <from>Company</from>
       <to>I&#x2f;0 sleep 5 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add &#x27;N&#x27; Prefix</from>
+      <to>Sort rows 3 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add &#x27;C&#x27; Prefix</from>
+      <to>Sort rows 3 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3 2</from>
+      <to>Merge Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3 3</from>
+      <to>Merge Join 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join 2</from>
+      <to>Append streams 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Join 2 2</from>
+      <to>Append streams 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append streams 2</from>
+      <to>Select values 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1108,8 +1103,8 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<head_name>Add &#x27;C&#x27; Prefix</head_name>
-<tail_name>Add &#x27;N&#x27; Prefix</tail_name>
+<head_name>Merge Join 2</head_name>
+<tail_name>Merge Join 2 2</tail_name>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1118,8 +1113,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
-      <yloc>1264</yloc>
+      <xloc>208</xloc>
+      <yloc>1472</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -2661,8 +2656,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>1952</yloc>
+      <xloc>208</xloc>
+      <yloc>1680</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -2771,7 +2766,7 @@
       <schema_name/>
     </partitioning>
 <join_type>INNER</join_type>
-<step1>Sort rows 3</step1>
+<step1>Sort rows 3 2</step1>
 <step2>Sort rows 4</step2>
     <keys_1>
       <key>CustomerID</key>
@@ -2787,8 +2782,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>1600</yloc>
+      <xloc>96</xloc>
+      <yloc>1312</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -2805,7 +2800,7 @@
       <schema_name/>
     </partitioning>
 <join_type>INNER</join_type>
-<step1>Sort rows 3</step1>
+<step1>Sort rows 3 3</step1>
 <step2>Sort rows 4 2</step2>
     <keys_1>
       <key>CustomerID</key>
@@ -2821,8 +2816,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>1504</yloc>
+      <xloc>272</xloc>
+      <yloc>1312</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -3556,8 +3551,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>2048</yloc>
+      <xloc>208</xloc>
+      <yloc>1776</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -3806,8 +3801,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>1856</yloc>
+      <xloc>208</xloc>
+      <yloc>1584</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -3938,48 +3933,6 @@
     </step>
 
   <step>
-    <name>Sort rows 3</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>CustomerID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>192</xloc>
-      <yloc>1392</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
     <name>Sort rows 4</name>
     <type>SortRows</type>
     <description/>
@@ -4064,33 +4017,6 @@
     </step>
 
   <step>
-    <name>Sorted Merge</name>
-    <type>SortedMerge</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>176</xloc>
-      <yloc>1760</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
     <name>String operations</name>
     <type>StringOperations</type>
     <description/>
@@ -4126,6 +4052,90 @@
     <GUI>
       <xloc>912</xloc>
       <yloc>1120</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows 3 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>CustomerID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>96</xloc>
+      <yloc>1216</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows 3 3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>CustomerID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>1216</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

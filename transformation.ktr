@@ -472,11 +472,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Northwind products</from>
-      <to>Append streams</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Append streams</from>
       <to>I&#x2f;O sleep</to>
       <enabled>Y</enabled>
@@ -714,6 +709,36 @@
     <hop>
       <from>Append streams 2</from>
       <to>Filter without phone and address</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Northwind Category Names</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Northwind products</from>
+      <to>Sort rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Join with catgories</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Join with catgories</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join with catgories</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Append streams</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1160,7 +1185,7 @@
       <schema_name/>
     </partitioning>
 <head_name>Classic products</head_name>
-<tail_name>Northwind products</tail_name>
+<tail_name>Select values</tail_name>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1169,8 +1194,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1360</xloc>
-      <yloc>144</yloc>
+      <xloc>1392</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1769,8 +1794,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1424</xloc>
-      <yloc>32</yloc>
+      <xloc>1456</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -2776,8 +2801,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1360</xloc>
-      <yloc>256</yloc>
+      <xloc>1392</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -3475,8 +3500,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
-      <yloc>32</yloc>
+      <xloc>1344</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -3781,8 +3806,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1360</xloc>
-      <yloc>368</yloc>
+      <xloc>1392</xloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -4300,6 +4325,236 @@
     <GUI>
       <xloc>912</xloc>
       <yloc>1120</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Northwind Category Names</name>
+    <type>AccessInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <include>N</include>
+    <include_field/>
+    <tablename>N</tablename>
+    <filename_Field/>
+    <tablename_field/>
+    <rownum>N</rownum>
+    <isaddresult>Y</isaddresult>
+    <filefield>N</filefield>
+    <rownum_field/>
+    <resetrownumber>N</resetrownumber>
+    <table_name>categories</table_name>
+    <file>
+      <name>&#x24;&#x7b;northwind&#x7d;</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>CategoryID</name>
+        <attribut>CategoryID</attribut>
+        <type>Integer</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <currency/>
+        <decimal/>
+        <group/>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>CategoryName</name>
+        <attribut>CategoryName</attribut>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <currency/>
+        <decimal/>
+        <group/>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1232</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Join with catgories</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+<join_type>INNER</join_type>
+<step1>Sort rows</step1>
+<step2>Sort rows 2</step2>
+    <keys_1>
+      <key>CategoryID</key>
+    </keys_1>
+    <keys_2>
+      <key>CategoryID</key>
+    </keys_2>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>CategoryID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1232</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>CategoryID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1344</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>      <field>        <name>ProductID</name>
+        <rename/>
+      </field>      <field>        <name>ProductName</name>
+        <rename/>
+      </field>      <field>        <name>CategoryName</name>
+        <rename>CategoryID</rename>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

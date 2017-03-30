@@ -2115,7 +2115,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
+<join_type>INNER</join_type>
 <step1>Sort by Contact</step1>
 <step2>Contact</step2>
     <keys_1>
@@ -2704,7 +2704,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
+<join_type>INNER</join_type>
 <step1>Sort by CompanyName</step1>
 <step2>Company</step2>
     <keys_1>
